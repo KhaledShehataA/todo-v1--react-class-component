@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import { Component } from 'react';
+import { TodoList } from './components/TodoList/index';
+import { AddTodo } from './components/AddTodo/index';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+	state = {
+		items: [
+			{
+				id: 1,
+				todo: 'Go to course',
+				time: '2',
+			},
+			{
+				id: 2,
+				todo: 'Go to club',
+				time: '2',
+			},
+			{
+				id: 3,
+				todo: 'Go to course',
+				time: '3',
+			},
+		],
+	};
+	render() {
+		return (
+			<div className='App'>
+				TodoList App
+				<TodoList items={this.state.items} />
+				<AddTodo />
+			</div>
+		);
+	}
 }
 
 export default App;
